@@ -16,7 +16,6 @@ spec:
         - githubOrg
         - repoName
         - owner
-        - system
         - port
       properties:
         githubOrg:
@@ -38,14 +37,6 @@ spec:
               kind:
                 - Group
                 - User
-        system:
-          title: System
-          type: string
-          ui:field: EntityPicker
-          ui:options:
-            catalogFilter:
-              kind:
-                - System
     - title: Provide Information for Application
       required:
         - component_id
