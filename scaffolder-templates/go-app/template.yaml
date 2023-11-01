@@ -78,28 +78,41 @@ spec:
                   default: latest
                   type: string
                   description: Build Image tag
-    - title: Application repository Information
+    - title: Provide information about the new component
       required:
-        - repo
+        - githubOrg
+        - repoName
+        - owner
+        - system
+        - port
       properties:
-        repo:
-          title: Repository Location
-          type: object
-          properties:
-            host:
-              title: Repo Host
-              type: string
-              description: Your SCM host
-              default: gitlab-gitlab.apps.cluster-qc7tb.sandbox2129.opentlc.com
-              enum:
-                - gitlab-gitlab.apps.cluster-qc7tb.sandbox2129.opentlc.com
-            owner:
-              title: Repo Owner
-              type: string
-              description: Your SCM host organization/group
-              default: development
-              enum:
-                - development
+        githubOrg:
+          title: GitHub Organization
+          type: string
+        repoName:
+          title: Repository Name
+          type: string
+        description:
+          title: Description
+          type: string
+          description: Help others understand what this component is for
+        owner:
+          title: Owner
+          type: string
+          ui:field: EntityPicker
+          ui:options:
+            catalogFilter:
+              kind:
+                - Group
+                - User
+        system:
+          title: System
+          type: string
+          ui:field: EntityPicker
+          ui:options:
+            catalogFilter:
+              kind:
+                - System
 
   steps:
     - id: template
@@ -182,12 +195,12 @@ spec:
 
     - id: publish-gitops
       name: Publishing to Resource Repository
-      action: publish:gitlab
+      action: publish:github
       input:
-        repoUrl: "${{ parameters.repo.host }}?owner=${{ parameters.repo.owner }}&repo=${{parameters.component_id}}-gitops"
-        title: gitops resources for ${{ parameters.component_id }}
-        description: gitops resources for ${{ parameters.component_id }}
-        sourcePath: ./tenant-gitops
+        allowedHosts: ['github.com']
+        description: ${{ parameters.description }}
+        repoUrl: github.com?owner=${{ parameters.githubOrg }}&repo=${{ parameters.repoName }}
+        defaultBranch: main
         repoVisibility: public
 
     - id: create-argocd-resources
