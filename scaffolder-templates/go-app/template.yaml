@@ -15,8 +15,6 @@ spec:
       required:
         - githubOrg
         - repoName
-        - owner
-        - port
       properties:
         githubOrg:
           title: GitHub Organization
@@ -28,15 +26,6 @@ spec:
           title: Description
           type: string
           description: Help others understand what this component is for
-        owner:
-          title: Owner
-          type: string
-          ui:field: EntityPicker
-          ui:options:
-            catalogFilter:
-              kind:
-                - Group
-                - User
     - title: Provide Information for Application
       required:
         - component_id
