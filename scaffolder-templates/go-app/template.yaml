@@ -19,14 +19,14 @@ spec:
           title: Name
           type: string
           description: Unique name of the component
-          default: my-quarkus-app
+          default: my-go-app
           ui:field: EntityNamePicker
           maxLength: 14
         group_id:
           title: Group Id
           type: string
           default: redhat.janus
-          description: Maven Group Id
+          description: RH DH Group ID
         description:
           title: Description
           type: string
@@ -78,41 +78,41 @@ spec:
                   default: latest
                   type: string
                   description: Build Image tag
-    - title: Provide information about the new component
-      required:
-        - githubOrg
-        - repoName
-        - owner
-        - system
-        - port
-      properties:
-        githubOrg:
-          title: GitHub Organization
-          type: string
-        repoName:
-          title: Repository Name
-          type: string
-        description:
-          title: Description
-          type: string
-          description: Help others understand what this component is for
-        owner:
-          title: Owner
-          type: string
-          ui:field: EntityPicker
-          ui:options:
-            catalogFilter:
-              kind:
-                - Group
-                - User
-        system:
-          title: System
-          type: string
-          ui:field: EntityPicker
-          ui:options:
-            catalogFilter:
-              kind:
-                - System
+      - title: Provide information about the new component
+        required:
+          - githubOrg
+          - repoName
+          - owner
+          - system
+          - port
+        properties:
+          githubOrg:
+            title: GitHub Organization
+            type: string
+          repoName:
+            title: Repository Name
+            type: string
+          description:
+            title: Description
+            type: string
+            description: Help others understand what this component is for
+          owner:
+            title: Owner
+            type: string
+            ui:field: EntityPicker
+            ui:options:
+              catalogFilter:
+                kind:
+                  - Group
+                  - User
+          system:
+            title: System
+            type: string
+            ui:field: EntityPicker
+            ui:options:
+              catalogFilter:
+                kind:
+                  - System
 
   steps:
     - id: template
@@ -210,7 +210,7 @@ spec:
         appName: ${{ parameters.component_id }}-bootstrap
         argoInstance: main
         namespace: janus-argocd
-        repoUrl: https://${{ parameters.repo.host }}/${{ parameters.repo.owner }}/${{ parameters.component_id }}-gitops.git
+        repoUrl: https://github.com?owner=${{ parameters.githubOrg }}&repo=${{ parameters.repoName }}
         path: 'argocd/'
 
   output:
