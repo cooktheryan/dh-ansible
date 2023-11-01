@@ -138,7 +138,7 @@ spec:
           imageBuilder: s2i-go
           imageRepository: ${{ parameters.imageRepository }}
           port: 8080
-          ci: ../../scaffolder-skeletons/tekton-skeleton/
+          ci: ../../scaffolder-skeletons/tekton-skeleton/tekton
 
     - id: publish
       name: Publish
