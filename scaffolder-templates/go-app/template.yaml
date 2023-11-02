@@ -101,6 +101,7 @@ spec:
       input:
         url: ./skeleton
         values:
+          component_id: ${{ parameters.component_id }}
           githubOrg: ${{ parameters.githubOrg }}
           repoName: ${{ parameters.repoName }}
           owner: rhdh
@@ -122,6 +123,7 @@ spec:
         copyWithoutTemplating:
           - .github/workflows/
         values:
+          component_id: ${{ parameters.component_id }}
           githubOrg: ${{ parameters.githubOrg }}
           repoName: ${{ parameters.repoName }}
           owner: ${{ parameters.owner }}
@@ -143,6 +145,7 @@ spec:
         copyWithoutTemplating:
           - .github/workflows/
         values:
+          component_id: ${{ parameters.component_id }}
           githubOrg: ${{ parameters.githubOrg }}
           repoName: ${{ parameters.repoName }}
           owner: ${{ parameters.owner }}
