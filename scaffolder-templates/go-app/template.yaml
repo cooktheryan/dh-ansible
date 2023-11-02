@@ -103,9 +103,9 @@ spec:
         values:
           githubOrg: ${{ parameters.githubOrg }}
           repoName: ${{ parameters.repoName }}
-          owner: ${{ parameters.owner }}
+          owner: rhdh
           system: ${{ parameters.system }}
-          applicationType: api
+          applicationType: app
           description: ${{ parameters.description }}
           namespace: ${{ parameters.namespace }}
           imageUrl: ${{ parameters.imageUrl }}
