@@ -21,7 +21,6 @@ metadata:
     github.com/project-slug: ${{ values.githubOrg }}/${{ values.repoName }}
 spec:
   type: ${{ values.applicationType }}
-  system: ${{ values.system }}
   lifecycle: production
   owner: ${{ values.owner }}
   {%- if values.dependsOn %}
