@@ -100,6 +100,19 @@ spec:
       action: fetch:template
       input:
         url: ./skeleton
+        values:
+          githubOrg: ${{ parameters.githubOrg }}
+          repoName: ${{ parameters.repoName }}
+          owner: ${{ parameters.owner }}
+          system: ${{ parameters.system }}
+          applicationType: api
+          description: ${{ parameters.description }}
+          namespace: ${{ parameters.namespace }}
+          imageUrl: ${{ parameters.imageUrl }}
+          imageBuilder: s2i-go
+          imageRepository: ${{ parameters.imageRepository }}
+          port: 8080
+          ci: ../../scaffolder-skeletons/tekton-skeleton/tekton
 
     - id: ciTemplate
       name: Generating the CI Component
