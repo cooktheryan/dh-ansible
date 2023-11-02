@@ -115,10 +115,12 @@ spec:
           ci: ../../scaffolder-skeletons/tekton-skeleton/tekton
 
     - id: ciTemplate
-      name: Generating the CI Component
+      name: Generating the assets
       action: fetch:template
       input:
-        url: ../../scaffolder-skeletons/tekton-skeleton/
+        url: 
+          - ../../scaffolder-skeletons/tekton-skeleton/
+          - ./manifests
         copyWithoutTemplating:
           - .github/workflows/
         values:
@@ -148,32 +150,6 @@ spec:
       input:
         repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
         catalogInfoPath: "/catalog-info.yaml"
-
-    - id: template-gitops-deployment
-      name: Generating Deployment Resources
-      action: fetch:template
-      input:
-        url: ./manifests
-        copyWithoutTemplating: []
-        values:
-          component_id: ${{ parameters.component_id }}
-          description: ${{ parameters.description }}
-          destination: https://${{ parameters.repo.host }}/${{ parameters.repo.owner }}/${{parameters.component_id}}-gitops.git
-          source_repository: https://${{ parameters.repo.host }}/${{ parameters.repo.owner }}/${{parameters.component_id}}.git
-          repository_name: ${{parameters.component_id}}
-          git_owner: ${{ parameters.repo.owner }}
-          cluster: .apps.cluster-qc7tb.sandbox2129.opentlc.com
-          namespace: ${{ parameters.component_id }}-dev
-          image_registry: ${{ parameters.image_registry }}
-          image_host: ${{ parameters.image_host }}
-          image_organization: ${{ parameters.image_organization }}
-          image_name: ${{ parameters.component_id }}
-          image_tag: ${{ parameters.image_tag }}
-          port: 8080
-          repository_host: ${{ parameters.repo.host }}
-          deployment_name: quarkus-template
-          user: ${{ user.entity.metadata.name }}
-        targetPath: ./tenant-gitops
 
     - id: publish-gitops
       name: Publishing to Resource Repository
