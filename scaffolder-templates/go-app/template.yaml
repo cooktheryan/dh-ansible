@@ -84,7 +84,7 @@ spec:
           description: ${{ parameters.description }}
           imageUrl: ${{ parameters.image_organization }}
           imageBuilder: s2i-go
-          imageRepository: ${{ parameters.imageRepository }}
+          imageRepository: ${{ parameters.image_host }}
           port: 8080
           ci: ../../scaffolder-skeletons/tekton-skeleton/tekton
 
