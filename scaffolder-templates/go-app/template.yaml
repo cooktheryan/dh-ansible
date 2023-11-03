@@ -101,6 +101,7 @@ spec:
       input:
         url: ./skeleton
         values:
+          namespace: ${{ parameters.component_id }}
           component_id: ${{ parameters.component_id }}
           githubOrg: ${{ parameters.githubOrg }}
           repoName: ${{ parameters.repoName }}
@@ -123,6 +124,7 @@ spec:
         copyWithoutTemplating:
           - .github/workflows/
         values:
+          namespace: ${{ parameters.component_id }}
           component_id: ${{ parameters.component_id }}
           githubOrg: ${{ parameters.githubOrg }}
           repoName: ${{ parameters.repoName }}
@@ -145,6 +147,7 @@ spec:
         copyWithoutTemplating:
           - .github/workflows/
         values:
+          namespace: ${{ parameters.component_id }}
           component_id: ${{ parameters.component_id }}
           githubOrg: ${{ parameters.githubOrg }}
           repoName: ${{ parameters.repoName }}
