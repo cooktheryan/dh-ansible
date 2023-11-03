@@ -103,7 +103,7 @@ spec:
           imageRepository: ${{ parameters.image_host }}
           imageUrl: ${{ parameters.image_organization }}
           source-repo: ${{ parameters.repoName }}
-          source-branch: main
+          source-branch: master
           owner: ${{ parameters.owner }}
           system: ${{ parameters.system }}
           output-image: ${{ parameters.image_host }}/${{ parameters.image_organization }}/${{ parameters.component_id }}:${{ parameters.image_tag }}
