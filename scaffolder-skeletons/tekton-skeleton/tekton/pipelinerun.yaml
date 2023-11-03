@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: ${{ values.repoName }}-pipeline-run-init
+  name: ${{ values.component-id }}-pipeline-run-init
   namespace: ${{ values.namespace }}
   annotations:
     argocd.argoproj.io/hook: PostSync

@@ -1,7 +1,7 @@
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: TriggerTemplate
 metadata:
-  name: ${{ values.repoName }}-run-pipeline
+  name: ${{ values.component-id }}-run-pipeline
   namespace: ${{ values.namespace }}
 spec:
   params:
@@ -17,7 +17,7 @@ spec:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
       metadata:
-        name: ${{ values.repoName }}-pipeline-$(uid)
+        name: ${{ values.component-id }}-pipeline-$(uid)
       spec:
         params:
           - name: source-repo

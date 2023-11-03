@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: ${{ values.repoName }}-pipeline
+  name: ${{ values.component-id }}-pipeline
   namespace: ${{ values.namespace }}
   labels:
     type: pipeline

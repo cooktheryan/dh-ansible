@@ -117,8 +117,11 @@ spec:
           - .github/workflows/
         values:
           namespace: ${{ parameters.component_id }}
+          repoName: ${{ parameters.repoName }}
           component_id: ${{ parameters.component_id }}
           githubOrg: ${{ parameters.githubOrg }}
+          imageRepository: ${{ parameters.image_host }}
+          imageUrl: ${{ parameters.image_organization }}
           source-repo: ${{ parameters.repoName }}
           source-branch: main
           owner: ${{ parameters.owner }}
