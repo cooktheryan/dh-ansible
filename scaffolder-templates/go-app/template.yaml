@@ -42,30 +42,19 @@ spec:
           default: A cool go app
     - title: Provide Image Registry Information
       required:
-        - image_registry
+        - image_host
+        - image_tag
       properties:
-        image_registry:
-          title: Image Registry
+        image_host:
+          title: Image Host
           type: string
-          enum:
-            - Openshift
-      dependencies:
-        image_registry:
-          oneOf:
-            - properties:
-                image_registry:
-                  enum:
-                    - Openshift
-                image_host:
-                  title: Image Host
-                  type: string
-                  description: Host for storing image
-                  default: image-registry.openshift-image-registry.svc:5000
-                image_tag:
-                  title: Image Tag
-                  default: latest
-                  type: string
-                  description: Build Image tag
+          description: Host for storing image
+          default: image-registry.openshift-image-registry.svc:5000
+      image_tag:
+          title: Image Tag
+          default: latest
+          type: string
+          description: Build Image tag
 
   steps:
     - id: template
