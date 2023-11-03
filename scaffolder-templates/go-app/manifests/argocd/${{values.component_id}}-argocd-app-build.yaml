@@ -11,12 +11,12 @@ metadata:
 spec:
   project: janus
   source:
-    repoURL: ${{ values.repoName }}
+    repoURL: 'https://github.com/${{ values.githubOrg }}/${{ values.repoName }}.git'
     targetRevision: HEAD
     path: ./app/build
   destination:
     server: https://kubernetes.default.svc
-    namespace: ${{ values.component_id }}-dev
+    namespace: ${{ values.component_id }}
   syncPolicy:
     automated:
       prune: true

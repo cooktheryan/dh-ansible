@@ -2,6 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: ${{ values.repoName }}
+  namespace: ${{ values.namespace }}
 spec:
   replicas: 1
   selector:
@@ -16,7 +17,7 @@ spec:
     spec:
       containers:
         - name: ${{ values.repoName }}
-          image: ${{ values.imageRepository }}/${{ values.imageUrl }}/${{ values.repoName }}:latest
+          image: ${{ values.imageRepository }}/${{ values.namespace }}/${{ values.repoName }}:latest
           ports:
             - name: http-${{ values.port }}
               containerPort: ${{ values.port }}

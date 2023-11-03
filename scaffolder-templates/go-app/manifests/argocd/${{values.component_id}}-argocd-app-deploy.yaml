@@ -16,7 +16,7 @@ spec:
     path: ./app
   destination:
     server: https://kubernetes.default.svc
-    namespace: ${{ values.component_id }}-dev
+    namespace: ${{ values.component_id }}
   syncPolicy:
     automated:
       prune: true
