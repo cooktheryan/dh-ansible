@@ -102,7 +102,6 @@ spec:
           system: ${{ parameters.system }}
           applicationType: app
           description: ${{ parameters.description }}
-          namespace: ${{ parameters.namespace }}
           imageUrl: ${{ parameters.imageUrl }}
           imageBuilder: s2i-go
           imageRepository: ${{ parameters.imageRepository }}
@@ -125,7 +124,6 @@ spec:
           system: ${{ parameters.system }}
           applicationType: api
           description: ${{ parameters.description }}
-          namespace: ${{ parameters.namespace }}
           imageUrl: ${{ parameters.imageUrl }}
           imageBuilder: s2i-go
           imageRepository: ${{ parameters.imageRepository }}
@@ -148,7 +146,6 @@ spec:
           system: ${{ parameters.system }}
           applicationType: api
           description: ${{ parameters.description }}
-          namespace: ${{ parameters.namespace }}
           imageUrl: ${{ parameters.imageUrl }}
           imageBuilder: s2i-go
           imageRepository: ${{ parameters.imageRepository }}
