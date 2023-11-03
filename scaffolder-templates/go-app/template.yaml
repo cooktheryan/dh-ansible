@@ -110,7 +110,6 @@ spec:
           applicationType: api
           description: ${{ parameters.description }}
           imageBuilder: s2i-go
-          imageRepository: ${{ parameters.imageRepository }}
           port: 8080
           ci: ../../scaffolder-skeletons/tekton-skeleton/tekton
 
@@ -131,7 +130,8 @@ spec:
           applicationType: api
           description: ${{ parameters.description }}
           imageBuilder: s2i-go
-          imageRepository: ${{ parameters.imageRepository }}
+          imageRepository: ${{ parameters.image_host }}
+          imageUrl: ${{ parameters.image_organization }}
           port: 8080
           ci: ../../scaffolder-skeletons/tekton-skeleton/tekton
 
