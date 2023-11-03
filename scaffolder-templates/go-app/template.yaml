@@ -119,9 +119,11 @@ spec:
           namespace: ${{ parameters.component_id }}
           component_id: ${{ parameters.component_id }}
           githubOrg: ${{ parameters.githubOrg }}
-          repoName: ${{ parameters.repoName }}
+          source-repo: ${{ parameters.repoName }}
+          source-branch: main
           owner: ${{ parameters.owner }}
           system: ${{ parameters.system }}
+          output-image: ${{ parameters.image_host }}/${{ parameters.image_organization }}/${{ parameters.component_id }}:${{ parameters.image_tag }}
           applicationType: api
           description: ${{ parameters.description }}
           imageUrl: ${{ parameters.imageUrl }}
