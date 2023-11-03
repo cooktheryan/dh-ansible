@@ -15,6 +15,7 @@ spec:
       required:
         - githubOrg
         - repoName
+        - component_id
       properties:
         githubOrg:
           title: GitHub Organization
@@ -22,14 +23,6 @@ spec:
         repoName:
           title: Repository Name
           type: string
-        description:
-          title: Description
-          type: string
-          description: Help others understand what this component is for
-    - title: Provide Information for Application
-      required:
-        - component_id
-      properties:
         component_id:
           title: Name
           type: string
