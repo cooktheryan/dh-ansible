@@ -8,6 +8,7 @@ metadata:
     app.kubernetes.io/component: backstage
     backstage.io/kubernetes-id: ${{ values.namespace }}
 spec:
+  rules:
   - host: ${{ values.hostUrl }}
     http:
       paths:

@@ -1,7 +1,7 @@
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: TriggerTemplate
 metadata:
-  name: ${{ values.component-id }}-run-pipeline
+  name: ${{ values.component_id }}-run-pipeline
   namespace: ${{ values.namespace }}
 spec:
   params:
@@ -17,7 +17,7 @@ spec:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
       metadata:
-        name: ${{ values.component-id }}-pipeline-$(uid)
+        name: ${{ values.component_id }}-pipeline-$(uid)
       spec:
         params:
           - name: source-repo
@@ -27,7 +27,7 @@ spec:
           - name: output-image
             value: $(tt.params.output-image)
         pipelineRef:
-          name: ${{ values.repoName }}-pipeline
+          name: ${{ values.component_id }}-pipeline
         serviceAccountName: pipeline
         timeout: 1h0m0s
         workspaces:
