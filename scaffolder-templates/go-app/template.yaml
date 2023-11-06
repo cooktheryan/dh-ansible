@@ -80,7 +80,7 @@ spec:
           namespace: ${{ parameters.component_id }}
           component_id: ${{ parameters.component_id }}
           githubOrg: ${{ parameters.githubOrg }}
-          repoName: ${{ parameters.repoName }}
+          repoName: ${{ parameters.repo.host }}?owner=${{ parameters.repo.owner }}&repo=${{parameters.component_id}}
           owner: rhdh
           system: ${{ parameters.system }}
           applicationType: app
