@@ -6,6 +6,7 @@ metadata:
   labels:
     type: pipeline
 spec:
+  serviceAccountName: ${{ values.component_id }}-builder
   params:
     - name: source-repo
       description: source repo that contains the application code
