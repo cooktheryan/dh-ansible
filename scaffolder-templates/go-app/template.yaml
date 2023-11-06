@@ -100,7 +100,7 @@ spec:
           - .github/workflows/
         values:
           namespace: ${{ parameters.component_id }}
-          repoName: ${{ parameters.repoName }}
+          repoName: ${{ parameters.repo.host }}?owner=${{ parameters.repo.owner }}&repo=${{parameters.component_id}}
           component_id: ${{ parameters.component_id }}
           repoOwner: ${{ parameters.repo.owner }}
           repoHost: ${{ parameters.repo.host }}
@@ -129,7 +129,7 @@ spec:
           component_id: ${{ parameters.component_id }}
           repoOwner: ${{ parameters.repo.owner }}
           repoHost: ${{ parameters.repo.host }}
-          repoName: ${{ parameters.repoName }}
+          repoName: ${{ parameters.repo.host }}?owner=${{ parameters.repo.owner }}&repo=${{parameters.component_id}}
           owner: ${{ parameters.owner }}
           system: ${{ parameters.system }}
           applicationType: api
