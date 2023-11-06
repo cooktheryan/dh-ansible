@@ -97,7 +97,7 @@ spec:
           ci: ../../scaffolder-skeletons/tekton-skeleton/tekton
 
     - id: ciTemplate
-      name: Generating the assets
+      name: Generating the CI assets
       action: fetch:template
       input:
         url: ../../scaffolder-skeletons/tekton-skeleton/
