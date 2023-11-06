@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: ${{ values.repoName }}
+  name: ${{ values.copmonent_id }}
   namespace: ${{ values.namespace }}
   labels:
-    app: ${{ values.repoName }}
+    app: ${{ values.component_id }}
     app.kubernetes.io/component: backstage
     backstage.io/kubernetes-id: ${{ values.namespace }}
 spec:
@@ -14,4 +14,4 @@ spec:
       protocol: TCP
       targetPort: ${{ values.port }}
   selector:
-    app: ${{ values.repoName }}
+    app: ${{ values.component_id }}
