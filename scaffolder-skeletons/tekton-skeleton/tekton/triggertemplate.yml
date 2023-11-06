@@ -4,7 +4,6 @@ metadata:
   name: ${{ values.component_id }}-run-pipeline
   namespace: ${{ values.namespace }}
 spec:
-  serviceAccountName: ${{ values.component_id }}-builder
   params:
     - name: git-revision
       description: The git revision
