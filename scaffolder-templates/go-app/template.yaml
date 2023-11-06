@@ -102,7 +102,8 @@ spec:
           namespace: ${{ parameters.component_id }}
           repoName: ${{ parameters.repoName }}
           component_id: ${{ parameters.component_id }}
-          githubOrg: ${{ parameters.githubOrg }}
+          repoOwner: ${{ parameters.repo.owner }}
+          repoHost: ${{ parameters.repo.host }}
           imageRepository: ${{ parameters.image_host }}
           imageUrl: ${{ parameters.image_organization }}
           source-repo: ${{ parameters.repoName }}
@@ -126,7 +127,8 @@ spec:
         values:
           namespace: ${{ parameters.component_id }}
           component_id: ${{ parameters.component_id }}
-          githubOrg: ${{ parameters.githubOrg }}
+          repoOwner: ${{ parameters.repo.owner }}
+          repoHost: ${{ parameters.repo.host }}
           repoName: ${{ parameters.repoName }}
           owner: ${{ parameters.owner }}
           system: ${{ parameters.system }}
