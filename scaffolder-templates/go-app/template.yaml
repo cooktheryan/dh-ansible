@@ -27,7 +27,11 @@ spec:
           type: string
           default: redhat.janus
           description: Group Id of the component
-          default: A cool go app
+        description:
+          title: Description
+          type: string
+          description: Description of the component
+          default: A Go application
     - title: Provide Image Registry Information
       required:
         - image_host
