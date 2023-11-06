@@ -81,6 +81,7 @@ spec:
           component_id: ${{ parameters.component_id }}
           githubOrg: ${{ parameters.githubOrg }}
           repoName: ${{ parameters.repo.host }}?owner=${{ parameters.repo.owner }}&repo=${{parameters.component_id}}
+          gitRepo: https://${{ parameters.repo.host }}/${{ parameters.repo.owner }}/${{ parameters.component_id }}.git
           owner: rhdh
           system: ${{ parameters.system }}
           applicationType: app
@@ -103,6 +104,7 @@ spec:
           - .github/workflows/
         values:
           namespace: ${{ parameters.component_id }}
+          gitRepo: https://${{ parameters.repo.host }}/${{ parameters.repo.owner }}/${{ parameters.component_id }}.git
           repoName: ${{ parameters.repo.host }}?owner=${{ parameters.repo.owner }}&repo=${{parameters.component_id}}
           component_id: ${{ parameters.component_id }}
           repoOwner: ${{ parameters.repo.owner }}
@@ -134,6 +136,7 @@ spec:
           namespace: ${{ parameters.component_id }}
           component_id: ${{ parameters.component_id }}
           repoOwner: ${{ parameters.repo.owner }}
+          gitRepo: https://${{ parameters.repo.host }}/${{ parameters.repo.owner }}/${{ parameters.component_id }}.git
           repoHost: ${{ parameters.repo.host }}
           cluster: .apps.cluster-vqghh.sandbox837.opentlc.com
           host: ${{ parameters.repo.host }}
