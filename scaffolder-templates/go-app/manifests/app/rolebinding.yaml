@@ -1,0 +1,39 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: edit
+  namespace: ${{ values.namespace }}
+subjects:
+  - kind: ServiceAccount
+    name: image-pusher
+    namespace: ${{values.component_id}}-dev
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: edit
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: ${{values.user}}-${{ values.namespace }}
+subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: ${{values.user}}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: edit
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: ${{ values.component_id }}-builder-bind
+subjects:
+  - kind: ServiceAccount
+    name: ${{ values.component_id }}-builder
+    namespace: ${{ values.namespace }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: pipelines-scc-clusterrole
