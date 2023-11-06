@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: ${{ values.component_id }}
-          image: ${{ values.imageRepository }}/${{ values.namespace }}/${{ values.component_id }}:latest
+          image: ${{ values.imageRepository }}/${{ values.quayOrg }}/${{ values.component_id }}:latest
           ports:
             - name: http-${{ values.port }}
               containerPort: ${{ values.port }}

@@ -19,7 +19,7 @@ spec:
     namespace: ${{ values.component_id }}
   syncPolicy:
     automated:
-      prune: true
+      prune: false
       selfHeal: true
     syncOptions:
     - RespectIgnoreDifferences=true

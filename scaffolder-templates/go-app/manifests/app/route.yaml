@@ -8,7 +8,6 @@ metadata:
     app.kubernetes.io/component: backstage
     backstage.io/kubernetes-id: ${{ values.namespace }}
 spec:
-  host: ''
   to:
     kind: Service
     name: ${{ values.component_id }}

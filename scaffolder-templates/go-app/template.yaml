@@ -41,7 +41,7 @@ spec:
           title: Image Host
           type: string
           description: Host for storing image
-          default: image-registry.openshift-image-registry.svc:5000
+          default: quay-vqghh.apps.cluster-vqghh.sandbox837.opentlc.com
         image_tag:
           title: Image Tag
           default: latest
@@ -77,6 +77,7 @@ spec:
       input:
         url: ./skeleton
         values:
+          quayOrg: quayadmin
           namespace: ${{ parameters.component_id }}
           component_id: ${{ parameters.component_id }}
           githubOrg: ${{ parameters.githubOrg }}
@@ -92,36 +93,6 @@ spec:
           imageUrl: ${{ parameters.image_organization }}
           imageBuilder: s2i-go
           imageRepository: ${{ parameters.image_host }}
-          port: 8080
-          ci: ../../scaffolder-skeletons/tekton-skeleton/tekton
-
-    - id: ciTemplate
-      name: Generating the assets
-      action: fetch:template
-      input:
-        url: ../../scaffolder-skeletons/tekton-skeleton/
-        copyWithoutTemplating:
-          - .github/workflows/
-        values:
-          namespace: ${{ parameters.component_id }}
-          gitRepo: https://${{ parameters.repo.host }}/${{ parameters.repo.owner }}/${{ parameters.component_id }}.git
-          repoName: ${{ parameters.repo.host }}?owner=${{ parameters.repo.owner }}&repo=${{parameters.component_id}}
-          component_id: ${{ parameters.component_id }}
-          repoOwner: ${{ parameters.repo.owner }}
-          repoHost: ${{ parameters.repo.host }}
-          cluster: .apps.cluster-vqghh.sandbox837.opentlc.com
-          host: ${{ parameters.repo.host }}
-          destination: ${{ parameters.repo.owner }}/${{ parameters.component_id }}
-          imageRepository: ${{ parameters.image_host }}
-          imageUrl: ${{ parameters.image_organization }}
-          source-repo: ${{ parameters.repoName }}
-          source-branch: master
-          owner: ${{ parameters.owner }}
-          system: ${{ parameters.system }}
-          output-image: ${{ parameters.image_host }}/${{ parameters.image_organization }}/${{ parameters.component_id }}:${{ parameters.image_tag }}
-          applicationType: api
-          description: ${{ parameters.description }}
-          imageBuilder: s2i-go
           port: 8080
           ci: ../../scaffolder-skeletons/tekton-skeleton/tekton
 
