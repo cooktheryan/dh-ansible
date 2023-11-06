@@ -116,6 +116,7 @@ spec:
           imageRepository: ${{ parameters.image_host }}
           imageUrl: ${{ parameters.image_organization }}
           source-repo: ${{ parameters.repoName }}
+          user: ${{ user.entity.metadata.name }}
           source-branch: master
           owner: ${{ parameters.owner }}
           system: ${{ parameters.system }}
@@ -137,6 +138,7 @@ spec:
           namespace: ${{ parameters.component_id }}
           component_id: ${{ parameters.component_id }}
           repoOwner: ${{ parameters.repo.owner }}
+          image_host: ${{ parameters.repo.host }}
           gitRepo: https://${{ parameters.repo.host }}/${{ parameters.repo.owner }}/${{ parameters.component_id }}.git
           repoHost: ${{ parameters.repo.host }}
           cluster: .apps.cluster-vqghh.sandbox837.opentlc.com
