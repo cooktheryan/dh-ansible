@@ -85,6 +85,9 @@ spec:
           system: ${{ parameters.system }}
           applicationType: app
           description: ${{ parameters.description }}
+          cluster: .apps.cluster-vqghh.sandbox837.opentlc.com
+          host: ${{ parameters.repo.host }}
+          destination: ${{ parameters.repo.owner }}/${{ parameters.component_id }}
           imageUrl: ${{ parameters.image_organization }}
           imageBuilder: s2i-go
           imageRepository: ${{ parameters.image_host }}

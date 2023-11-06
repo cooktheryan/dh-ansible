@@ -15,8 +15,7 @@ metadata:
     gitlab.com/project-slug: ${{values.destination}}
     quay.io/repository-slug: ${{values.quay_destination | dump}}
   tags:
-    - java
-    - quarkus
+    - go
   links:
     - url: https://devspaces${{values.cluster}}/#https://${{values.host}}/${{values.destination}}?che-editor=che-incubator/che-code/insiders&devfilePath=.devfile-vscode.yaml
       title: OpenShift Dev Spaces (VS Code)
