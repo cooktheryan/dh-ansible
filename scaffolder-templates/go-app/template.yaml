@@ -11,34 +11,22 @@ spec:
   owner: rhdh
   type: service
   parameters:
-    - title: Provide information about the new component
+    - title: Provide Information for Application
       required:
-        - githubOrg
-        - repoName
         - component_id
       properties:
-        githubOrg:
-          title: GitHub Organization
-          type: string
-        repoName:
-          title: Repository Name
-          type: string
         component_id:
           title: Name
           type: string
           description: Unique name of the component
-          default: my-go-app
+          default: my-quarkus-app
           ui:field: EntityNamePicker
           maxLength: 14
         group_id:
           title: Group Id
           type: string
           default: redhat.janus
-          description: RH DH Group ID
-        description:
-          title: Description
-          type: string
-          description: Help others understand what this website is for.
+          description: Maven Group Id
           default: A cool go app
     - title: Provide Image Registry Information
       required:
