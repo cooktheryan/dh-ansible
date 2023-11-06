@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: ${{ values.copmonent_id }}
+  name: ${{ values.component_id }}
   namespace: ${{ values.namespace }}
   labels:
     app: ${{ values.component_id }}
