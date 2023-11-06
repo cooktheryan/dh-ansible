@@ -55,6 +55,28 @@ spec:
           default: latest
           type: string
           description: Build Image tag
+    - title: Application repository Information
+      required:
+        - repo
+      properties:
+        repo:
+          title: Repository Location
+          type: object
+          properties:
+            host:
+              title: Repo Host
+              type: string
+              description: Your SCM host
+              default: gitlab-gitlab.apps.cluster-vqghh.sandbox837.opentlc.com
+              enum:
+                - gitlab-gitlab.apps.cluster-vqghh.sandbox837.opentlc.com
+            owner:
+              title: Repo Owner
+              type: string
+              description: Your SCM host organization/group
+              default: development
+              enum:
+                - development
 
   steps:
     - id: template
@@ -126,7 +148,7 @@ spec:
 
     - id: publish
       name: Publish
-      action: publish:github
+      action: publish:gitlab
       input:
         repoUrl: github.com?owner=${{ parameters.githubOrg }}&repo=${{ parameters.repoName }}
         repoVisibility: public
@@ -145,7 +167,7 @@ spec:
         appName: ${{ parameters.component_id }}-bootstrap
         argoInstance: main
         namespace: janus-argocd
-        repoUrl: https://github.com?owner=${{ parameters.githubOrg }}&repo=${{ parameters.repoName }}
+        repoUrl: https://${{ parameters.repo.host }}/${{ parameters.repo.owner }}/${{ parameters.component_id }}-gitops.git
         path: 'argocd/'
 
   output:
