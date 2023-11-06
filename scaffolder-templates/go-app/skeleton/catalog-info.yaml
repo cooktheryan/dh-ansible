@@ -5,7 +5,7 @@ kind: ${{ values.entityKind }}
 kind: Component
 {%- endif %}
 metadata:
-  name: ${{ values.repoName }}
+  name: ${{ values.component_uid }}
   {%- if values.description %}
   description: ${{ values.description }}
   {%- endif %}
