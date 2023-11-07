@@ -1,0 +1,39 @@
+---
+- name: Example Playbook
+  hosts: localhost
+  gather_facts: false
+  collections:
+    - kubealex.eda
+  tasks:
+    - name: Create EDA Projects
+      kubealex.eda.eda_projects:
+        controller_url: "{{ controller_url }}"
+        controller_user: "{{ controller_user }}"
+        controller_password: "{{ controller_password }}"
+        projects:
+          - name: "{{ eda_project_name }}"
+            description: "Project EDA Demo description"
+            git_url: "{{ git_repo }}"
+
+    - name: Create EDA decision Environments
+      kubealex.eda.eda_decision_environment:
+        controller_url: "{{ controller_url }}"
+        controller_user: "{{ controller_user }}"
+        controller_password: "{{ controller_password }}"
+        decision_envs:
+          - name: Decision Environment 
+            image_url: "{{ eda_image_url }}"
+
+    - name: Create EDA Activations
+      kubealex.eda.eda_activations:
+        controller_url: "{{ controller_url }}"
+        controller_user: "{{ controller_user }}"
+        controller_password: "{{ controller_password }}"
+        activations:
+          - name: Activation 1
+            project_name: "{{ eda_project_name }}"
+            rulebook: "{{ eda_rulebook_name }}"
+            decision_env: "{{ eda_decision_env }}"
+
+      
+   
