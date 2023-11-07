@@ -31,6 +31,9 @@ spec:
         serviceAccountName: ${{ values.component_id }}-builder
         timeout: 1h0m0s
         workspaces:
+          - name: docker-config
+            secret:
+              secretName: ${{ values.component_id }}-registry-creds
           - name: source-folder
             volumeClaimTemplate:
               spec:

@@ -41,10 +41,13 @@ spec:
       runAfter:
         - git-clone
       taskRef:
-        kind: ClusterTask
-        name: ${{ values.imageBuilder }}
+        kind: Task
+        name: kaniko
       workspaces:
         - name: source
           workspace: source-folder
+        - name: dockerconfig
+          workspace: docker-config
   workspaces:
     - name: source-folder
+    - name: docker-config
