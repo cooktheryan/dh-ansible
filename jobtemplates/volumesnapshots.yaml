@@ -5,7 +5,7 @@ metadata:
 spec:
   tower_auth_secret: aap-access
   job_template_name: Volume Snapshots
-  job_template_project: demo-dh
+  job_template_project: dh-ansible
   job_template_playbook: playbooks/volumesnapshots.yaml
   job_template_ask_vars: true
   job_template_inventory: ocp
