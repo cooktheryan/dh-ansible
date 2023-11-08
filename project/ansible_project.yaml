@@ -1,0 +1,13 @@
+apiVersion: tower.ansible.com/v1alpha1
+kind: AnsibleProject
+metadata:
+  name: git
+  namespace: janus-argocd
+spec:
+  repo: https://github.com/cooktheryan/dh-ansible
+  branch: main
+  name: dh-ansible
+  scm_type: git
+  organization: Default
+  description: DH resources 
+  connection_secret: aapaccess 
