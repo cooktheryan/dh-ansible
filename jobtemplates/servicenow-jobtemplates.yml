@@ -1,0 +1,12 @@
+---
+apiVersion: tower.ansible.com/v1alpha1
+kind: JobTemplate
+metadata:
+  name: servicenow-jobtemplate
+spec:
+  connection_secret: aap-access
+  name: 'Service Now Change Request'
+  project: 'dh-ansible'
+  playbook: 'playbooks/servicenow-change-request-playbook.yml'
+  inventory: 'Demo Inventory'
+  credentials: 'Service Now Credentials'
