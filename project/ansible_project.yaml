@@ -10,4 +10,4 @@ spec:
   scm_type: git
   organization: Default
   description: DH resources 
-  connection_secret: aapaccess 
+  connection_secret: aap-access 
