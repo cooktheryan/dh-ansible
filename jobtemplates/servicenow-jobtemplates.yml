@@ -11,3 +11,4 @@ spec:
   playbook: 'playbooks/servicenow-change-request-playbook.yml'
   inventory: 'Demo Inventory'
   credentials: 'Service Now Credentials'
+  ask_variables_on_launch: true

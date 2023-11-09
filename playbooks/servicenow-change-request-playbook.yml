@@ -18,7 +18,7 @@
           host: "{{ instance }}"
           username: "{{ username }}"
           password: "{{ password }}"
-        type: standard
+        type: normal
         state: new
         requested_by: "{{ username }}"
         short_description: "{{ short_description }}"
@@ -28,6 +28,18 @@
         risk: low
         impact: low
       register: change_request
+
+    - name: Close change request as completed
+      servicenow.itsm.change_request:
+        instance:
+          host: "{{ instance }}"
+          username: "{{ username }}"
+          password: "{{ password }}"
+        state: closed
+        number: "{{ change_request.record.number }}"
+        close_code: successful
+        close_notes: "Completed successfully"
+      when: change_request.record.state == 'new'
 
     - name: Get change request record number
       ansible.builtin.debug:
