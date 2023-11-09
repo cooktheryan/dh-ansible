@@ -8,6 +8,7 @@
     username: "{{ lookup('env', 'SN_USERNAME') }}"
     password: "{{ lookup('env', 'SN_PASSWORD') }}"
     instance: "{{ lookup('env', 'SN_HOST') }}"
+    token: "{{ lookup('env', 'SLACK_TOKEN') }}"
     short_description: 
     description:
 
