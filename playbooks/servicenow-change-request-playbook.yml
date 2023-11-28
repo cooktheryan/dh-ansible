@@ -4,11 +4,13 @@
   gather_facts: false
   collections:
     - servicenow.itsm
+    - community.general
   vars:
     username: "{{ lookup('env', 'SN_USERNAME') }}"
     password: "{{ lookup('env', 'SN_PASSWORD') }}"
     instance: "{{ lookup('env', 'SN_HOST') }}"
-    short_description:
+    token: "{{ lookup('env', 'SLACK_TOKEN') }}"
+    short_description: "Reporting Change Request"
     description:
 
   tasks:
@@ -45,3 +47,24 @@
       ansible.builtin.debug:
         msg: "A new change request has been created: {{ change_request.record.number }}"
 
+
+    - name: Notify Slack that incident has been created
+      community.general.slack:
+        token: "{{ token }}"
+        msg: |
+            ```
+            #### New Incident ####
+            ----------------------------------------------------
+            Record Number: {{ change_request.record.number }}
+            Description: {{ short_description }}
+            Owner: {{ username }}
+
+            Need Assistance?
+            <https://example.com|Open a ticket>
+            ----------------------------------------------------
+            ```
+        channel: '#dh-ansible'
+        color: good
+        username: 'rhdh-bot'
+        link_names: 0
+        parse: 'none'
